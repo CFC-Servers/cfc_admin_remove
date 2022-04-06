@@ -34,7 +34,7 @@ hook.Add( "InitPostEntity", "AdminRemove_Setup", function()
                     local owner = ent:CPPIGetOwner()
 
                     if owner and ply:IsAdmin() and owner ~= ply then
-                        ulx.fancyLogAdmin( ply, "#A removed a #s owned by #T", ent:GetClass(), ply )
+                        ulx.fancyLogAdmin( ply, "#A removed a #s owned by #T", ent:GetClass(), owner )
                     end
 
                     SafeRemoveEntity( ent )
