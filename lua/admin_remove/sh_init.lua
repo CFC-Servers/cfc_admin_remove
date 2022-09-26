@@ -5,7 +5,7 @@ local IsValid = IsValid
 hook.Add( "InitPostEntity", "AdminRemove_Setup", function()
     local property = properties.List.remove
 
-    property.Filter = function( self, ent, ply )
+    property.Filter = function( _, ent, ply )
         if not IsValid( ent ) then return false end
         if ent:IsPlayer() then return false end
 
@@ -18,7 +18,7 @@ hook.Add( "InitPostEntity", "AdminRemove_Setup", function()
     if SERVER then
         -- Have to override this because it's a network receiver
         -- It's identical to gmod's except for the alerting logic in the timer
-        property.Receive = function( self, length, ply )
+        property.Receive = function( self, _, ply )
             if not IsValid( ply ) then return end
 
             local ent = net.ReadEntity()
